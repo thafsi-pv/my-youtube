@@ -18,7 +18,7 @@ const VideoContainer = () => {
   };
 
   return (
-    <div className="flex columns-4 flex-wrap w-[100%] items-center  min-h-screen overflow-x-scroll pr-10 pt-10 mt-0 p-3 m-3">
+    <div className="flex columns-4 flex-wrap items-center  min-h-screen w-[90%]">
       <div className="w-1/4">{videoList[0] && <AdVideoCard info={videoList[0]} />}</div>
       {videoList.map((video) => (
         <div className="w-1/4">

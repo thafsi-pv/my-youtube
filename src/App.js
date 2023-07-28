@@ -25,7 +25,7 @@ function App() {
 
   return (
     <Provider store={store}>
-      <div className="font-bold h-screen">
+      <div className="font-bold h-screen w-screen">
         <Head />
         <RouterProvider router={appRouter}/>
       </div>

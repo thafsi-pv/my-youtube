@@ -4,9 +4,9 @@ import MainContainer from "./MainContainer";
 
 const Body = () => {
   return (
-    <div className="flex max-w-[90%] ">
-        <Sidebar />
-        <Outlet/>
+    <div className="flex w-screen  left-0 right-0 ">
+        <Sidebar className='w-2/5'/> 
+        <Outlet className='flex-1'/>
     </div>
   );
 };

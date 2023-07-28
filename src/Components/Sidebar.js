@@ -21,7 +21,7 @@ const Sidebar = () => {
   }
 
   return (
-    <nav className="px-2 mt-[80px] w-[15%] h-screen sticky  top-20">
+    <nav className="px-2 mt-[80px]  h-screen sticky  top-20">
       <div className="px-4">
         <Link to="/"><a
           href="#"
