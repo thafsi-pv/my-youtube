@@ -36,7 +36,7 @@ const Head = () => {
   };
 
   return (
-    <div className="grid grid-flow-col h-16  mb-3 fixed top-0  w-screen bg-white left-0 right-0">
+    <div className="grid grid-flow-col h-16  mb-3 absolute top-0  w-screen bg-white left-0 right-0">
       <div className=" flex p-4 items-center">
         <div className="px-3 ">
           <RxHamburgerMenu

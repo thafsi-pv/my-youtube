@@ -23,7 +23,7 @@ const ButtonList = () => {
     //     <Button key={obj.snippet.title} name={obj.snippet.title} />
     //   ))}
 
-    <div class="flex justify-center w-[99%] left-0 right-0">
+    <div class="flex justify-center m-w-full w-2/4 left-0 right-0">
       <div class="w-full left-0 right-0">
         <div class="flex flex-row justify-between align-middle items-center">
           <button

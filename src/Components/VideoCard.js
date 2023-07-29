@@ -31,13 +31,13 @@ const VideoCard = ({ info }) => {
             alt=""
           />
         </div>
-        <div className="flex ">
+        <div className="flex items-center">
           <div className="w-[15%] m-2">
             <img src={channelLog} className="w-10 h-10 rounded-full" alt="" />
           </div>
-          <div className="w-[80%] pt-2">
+          <div className="w-[80%] pt-2 text-left">
             <p className="font-medium truncate">{title}</p>
-            <p className="text-sm font-medium text-slate-600 pt-2">{channelTitle}</p>
+            <p className="text-sm font-medium text-slate-600">{channelTitle}</p>
             <div className="flex">
               <p className="text-sm font-medium text-slate-600" >{statistics.viewCount} Views <span className="font-bold">&nbsp; .&nbsp;</span></p>
               <p className="text-sm font-medium text-slate-600">12 hours ago</p>

@@ -2,7 +2,7 @@ import ButtonList from "./ButtonList";
 import VideoContainer from "./VideoContainer";
 
 const MainContainer=()=>{
-    return <div className="mt-[64px] w-full pr-10">
+    return <div className="flex flex-col gap-4 mt-16 w-[63%]">
         <ButtonList/>
         <VideoContainer/>
     </div>
