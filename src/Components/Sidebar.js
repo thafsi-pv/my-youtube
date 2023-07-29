@@ -28,7 +28,7 @@ const Sidebar = () => {
             href="#"
             className="flex  items-center hover:bg-slate-200 p-3 rounded-md">
             <MdHomeFilled className="h-6 w-6" />
-            <span className="px-4 font-medium">Home</span>
+            <span className="px-4 font-normal">Home</span>
           </a>
         </Link>
         <Link to="/dashboard">
@@ -36,20 +36,20 @@ const Sidebar = () => {
             href=""
             className="flex items-center hover:bg-slate-200 p-3 rounded-md">
             <MdMovie className="h-6 w-6" />
-            <span className="px-4 font-normal">Dashboard</span>
+            <span className="px-4 font-normal text-sm">Dashboard</span>
           </a>
         </Link>
         <a
           href="#"
           className="flex items-center hover:bg-slate-200 p-3 rounded-md">
           <img className="h-6 w-6" src={YTShorts} alt="" />
-          <span className="px-4 font-normal">Shorts</span>
+          <span className="px-4 font-normal text-sm">Shorts</span>
         </a>
         <a
           href=""
           className="flex items-center hover:bg-slate-200 p-3 rounded-md">
           <MdOutlineSubscriptions className="h-6 w-6" />
-          <span className="px-4 font-normal">Subtion</span>
+          <span className="px-4 font-normal text-sm">Subtion</span>
         </a>
       </div>
       <hr></hr>
@@ -59,24 +59,24 @@ const Sidebar = () => {
           href=""
           className="flex items-center hover:bg-slate-200 p-3 rounded-md">
           <MdOutlineVideoLibrary className="h-6 w-6" />
-          <span className="px-4 font-normal">Library</span>
+          <span className="px-4 font-normal text-sm">Library</span>
         </a>
         <a
           href=""
           className="flex items-center hover:bg-slate-200 p-3 rounded-md">
           <MdHistory className="h-6 w-6" />
-          <span className="px-4 font-normal">History</span>
+          <span className="px-4 font-normal text-sm">History</span>
         </a>
         <a
           href=""
           className="flex items-center hover:bg-slate-200 p-3 rounded-md">
           <MdOndemandVideo className="h-6 w-6" />
-          <span className="px-4 font-normal">Your Videos</span>
+          <span className="px-4 font-normal text-sm">Your Videos</span>
         </a>
       </div>
       <hr></hr>
       <div className="p-2 text-left">
-        <p className="font-normal">Subscriptions</p>
+        <p className="font-normal text-sm">Subscriptions</p>
         <a
           href=""
           className="flex items-center hover:bg-slate-200 p-3 rounded-md">
@@ -85,7 +85,7 @@ const Sidebar = () => {
             src="https://yt3.ggpht.com/ytc/AL5GRJXcrhueXxa0kujKj2igxeT9S0ZFbgMxaXtXtZv8QQ=s88-c-k-c0x00ffffff-no-rj"
             alt=""
           />
-          <span className="px-4 font-normal">Akshay Saini</span>
+          <span className="px-4 font-normal text-sm">Akshay Saini</span>
         </a>
         <a
           href=""
@@ -95,35 +95,35 @@ const Sidebar = () => {
             src="https://yt3.ggpht.com/3m7YWoidzuek7zpRiyFbszyDeNGiWvW2G3gu2TCx2N99i7d5AhZO6HP7PsdsyrlUQVd-eo_ZI-Q=s88-c-k-c0x00ffffff-no-rj"
             alt=""
           />
-          <span className="px-4 font-normal">Sharique Samsudeen</span>
+          <span className="px-4 font-normal text-sm">Sharique Samsudeen</span>
         </a>
       </div>
       <hr></hr>
       <div className="p-2 text-left">
-        <p className="font-normal">Explore</p>
+        <p className="font-normal text-sm">Explore</p>
         <a
           href=""
           className="flex items-center hover:bg-slate-200 p-3 rounded-md">
           <MdOutlineTrendingUp className="h-6 w-6" />
-          <span className="px-4 font-normal">Trending</span>
+          <span className="px-4 font-normal text-sm">Trending</span>
         </a>
         <a
           href=""
           className="flex items-center hover:bg-slate-200 p-3 rounded-md">
           <HiOutlineShoppingBag className="h-6 w-6" />
-          <span className="px-4 font-normal">Shopping</span>
+          <span className="px-4 font-normal text-sm">Shopping</span>
         </a>
         <a
           href=""
           className="flex items-center hover:bg-slate-200 p-3 rounded-md">
           <MdMusicNote className="h-6 w-6" />
-          <span className="px-4 font-normal">Music</span>
+          <span className="px-4 font-normal text-sm">Music</span>
         </a>
         <a
           href=""
           className="flex items-center hover:bg-slate-200 p-3 rounded-md">
           <MdMovie className="h-6 w-6" />
-          <span className="px-4 font-normal">Movies</span>
+          <span className="px-4 font-normal text-sm">Movies</span>
         </a>
       </div>
       <div className="p-2 m-10">
