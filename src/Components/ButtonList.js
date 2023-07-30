@@ -23,28 +23,28 @@ const ButtonList = () => {
     //     <Button key={obj.snippet.title} name={obj.snippet.title} />
     //   ))}
 
-    <div class="flex justify-center m-w-full w-2/4 left-0 right-0">
+    <div class="flex justify-center m-w-full w-2/4 sticky top-12 right-0 bg-neutral-100">
       <div class="w-full left-0 right-0">
-        <div class="flex flex-row justify-between align-middle items-center">
-          <button
+        <div class="flex flex-row justify-between align-middle items-center p-2">
+          {/* <button
             class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-l"
             onclick="scroll(-1)">
             <FaAngleLeft />
-          </button>
+          </button> */}
           <div class="overflow-x-scroll flex">
             <div class="inline-flex">
-              <div className="flex h-[50px] pt-4 pb-6 items-center  top-24 bg-white">
+              <div className="flex h-[50px] pt-4 pb-6 items-center  top-24 bg-neutral-100">
                 {videoCategory.map((obj) => (
                   <Button key={obj.snippet.title} name={obj.snippet.title} />
                 ))}
               </div>
             </div>
           </div>
-          <button
+          {/* <button
             class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-r"
             onclick="scroll(1)">
             <FaAngleRight />
-          </button>
+          </button> */}
         </div>
       </div>
     </div>

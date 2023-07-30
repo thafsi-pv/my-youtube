@@ -18,7 +18,7 @@ const VideoContainer = () => {
   };
 
   return (
-    <div className="flex flex-row flex-wrap justify-center items-center w-1/2">
+    <div className="flex flex-row flex-wrap justify-center items-center w-1/2 overflow-y-scroll">
       <div className="w-1/3">{videoList[0] && <AdVideoCard info={videoList[0]} />}</div>
       {videoList.map((video) => (
         <div className="w-1/3">

@@ -21,7 +21,7 @@ const Sidebar = () => {
   }
 
   return (
-    <nav className=" p-3 flex flex-col px-2 mt-[80px] w-64  h-screen overflow-y-scroll top-20 mb-9">
+    <nav className=" p-3 flex flex-col px-2 mt-[80px] w-[6%]  h-screen overflow-y-scroll top-20 mb-9">
       <div className="px-4">
         <Link to="/">
           <a
@@ -95,7 +95,7 @@ const Sidebar = () => {
             src="https://yt3.ggpht.com/3m7YWoidzuek7zpRiyFbszyDeNGiWvW2G3gu2TCx2N99i7d5AhZO6HP7PsdsyrlUQVd-eo_ZI-Q=s88-c-k-c0x00ffffff-no-rj"
             alt=""
           />
-          <span className="px-4 font-normal text-sm">Sharique Samsudeen</span>
+          <span className="px-4 font-normal text-sm truncate">Sharique Samsudeen</span>
         </a>
       </div>
       <hr></hr>
