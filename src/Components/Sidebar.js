@@ -21,7 +21,7 @@ const Sidebar = () => {
   }
 
   return (
-    <nav className=" p-3 flex flex-col px-2 mt-[80px] w-[6%]  h-screen overflow-y-scroll top-20 mb-9">
+    <nav className=" p-3 flex flex-col px-2 mt-[80px] w-54  h-screen overflow-y-scroll top-20 mb-9">
       <div className="px-4">
         <Link to="/">
           <a

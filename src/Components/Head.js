@@ -11,8 +11,8 @@ import { CiSearch } from "react-icons/ci";
 
 const Head = () => {
   const [searchQuery, setSerachQuery] = useState([]);
-  const [suggestion, setSuggestion] = useState();
-  console.log("🚀 ~ file: Head.js:15 ~ Head ~ suggestion:", suggestion);
+  const [suggestion, setSuggestion] = useState([]);
+  console.log("🚀 ~ file: Head.js:15 ~ Head ~ suggestion:", suggestion.length);
   const dispatch = useDispatch();
 
   const handleSidebar = () => {
@@ -32,7 +32,6 @@ const Head = () => {
   const getSearchsuggestion = async () => {
     const data = await fetch(YOUTUBE_SEARCH_SUGGESTION_API + searchQuery);
     const json = await data.json();
-    console.log("🚀 ~ file: Head.js:35 ~ getSearchsuggestion ~ json:", json);
     setSuggestion(json[1]);
   };
 
@@ -70,11 +69,11 @@ const Head = () => {
           <button className="border border-slate-400 rounded-r-full p-1 h-10 px-4 bg-slate-100">
             <FiSearch />
           </button>
-          {suggestion.length > 0 && (
+          {suggestion.length !== 0 && (
             <div className="bg-white  w-[93%] rounded-md z-20  mt-10 absolute border">
               <ul classNmae="divide-y divide-gray-100">
                 {suggestion &&
-                  suggestion.map((s) => {
+                  suggestion?.map((s) => {
                     return (
                       <li
                         key={s}
