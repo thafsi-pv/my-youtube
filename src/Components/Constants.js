@@ -19,7 +19,7 @@ export const YOUTUBE_VIDEO_CATEGORY_API =
   MY_API_KEY;
 
 export const YOUTUBE_SEARCH_SUGGESTION_API =
-  "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=";
+  "https://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=";
 
 export const YT_VIDEO_SUGGESTIONS = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&type=video&key=
   ${MY_API_KEY}&videoId=`;
