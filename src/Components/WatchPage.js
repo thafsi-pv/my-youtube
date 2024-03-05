@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useSearchParams } from "react-router-dom";
-import { closeSidebar } from "./Utils/sidebarSlice";
+import { closeSidebar, toggleSidebar } from "./Utils/sidebarSlice";
 import {
   YT_VIDEO_COMMENTS,
   YT_VIDEO_DETAILS_BYID,
@@ -13,6 +13,7 @@ const WatchPage = () => {
   const dispatch = useDispatch();
   const [searchParams] = useSearchParams();
   const [suggestionList, setSuggestionList] = useState([{}]);
+  console.log("🚀 ~ WatchPage ~ suggestionList:", suggestionList)
   const [videoDetails, setVideoDetails] = useState();
   const [videoComments, setVideoComments] = useState();
   console.log(
@@ -25,11 +26,13 @@ const WatchPage = () => {
     handleVideoSuggestions();
     getVideoDetails();
     getVideoComments();
+    return () => dispatch(toggleSidebar())
   }, []);
 
   const handleVideoSuggestions = async () => {
     const response = await fetch(YT_VIDEO_SUGGESTIONS + searchParams.get("v"));
     const data = await response.json();
+    console.log("🚀 ~ handleVideoSuggestions ~ data:", data)
     setSuggestionList(data?.items);
   };
 
@@ -47,16 +50,16 @@ const WatchPage = () => {
 
   return (
     <div className="flex items-start mt-20 w-full h-full  md:flex-row sm:flex-col">
-      <div className="w-4/6 sm:w-[95%] pr-5 h-[75%] m-8 ">
+      <div className="md:w-4/6 w-full pr-5 md:h-[75%] h-72 md:m-8 ">
         <div className="w-full h-full">
           <iframe
-            className="w-full h-full"
+            className="w-full h-full rounded-lg"
             width="560"
             height="315"
             src={
               "https://www.youtube.com/embed/" +
               searchParams.get("v") +
-              "?autoplay=0&mute=1"
+              "?autoplay=1&mute=0"
             }
             title="YouTube video player"
             frameBorder="0"
@@ -77,7 +80,7 @@ const WatchPage = () => {
               />
               <div>
                 <p className="font-semibold">
-                {item.snippet.topLevelComment.snippet.authorDisplayName} <span className="text-xs text-gray-500">{formatDateAgo(item.snippet.topLevelComment.snippet.updatedAt)}</span>
+                  {item.snippet.topLevelComment.snippet.authorDisplayName} <span className="text-xs text-gray-500">{formatDateAgo(item.snippet.topLevelComment.snippet.updatedAt)}</span>
                 </p>
                 <p className="font-normal text-sm"> {item.snippet.topLevelComment.snippet.textOriginal}</p>
               </div>
@@ -86,14 +89,14 @@ const WatchPage = () => {
         ))}
 
       </div>
-      <div className="w-2/6 overflow-y-scroll">
-        {suggestionList.map((item) => (
+      <div className="w-2/6 overflow-y-scroll hidden md:block">
+        {suggestionList?.map((item) => (
           <div className="flex mb-2">
-            <div className="w-2/3">
+            <div className="">
               <img
                 alt=""
-                className="rounded-md object-fill h-20 w-full "
-                src={item?.snippet?.thumbnails?.maxres?.url}
+                className="rounded-md object-cover h-32 "
+                src={item?.snippet?.thumbnails?.high?.url}
               />
             </div>
             <div className="w-[60%] p-2 text-left">

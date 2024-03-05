@@ -7,7 +7,6 @@ import { formatVideoCount } from "./Utils/formatCount";
 import formatDateAgo from "./Utils/formatAgo";
 
 const VideoCard = ({ info }) => {
-  console.log("🚀 ~ file: VideoCard.js:9 ~ VideoCard ~ info:", info);
   const { snippet, statistics } = info;
   const { channelTitle, title, thumbnails, channelId, publishedAt } = snippet;
   const [channelLog, setChannelLog] = useState();
@@ -40,14 +39,14 @@ const VideoCard = ({ info }) => {
           </div>
           <div className="w-[80%] pt-2 text-left">
             <p className="font-normal truncate">{title}</p>
-            <p className="text-sm font-normal text-slate-600">{channelTitle}</p>
+            <p className="text-sm font-normal text-slate-400">{channelTitle}</p>
             <div className="flex items-center align-middle">
-              <p className="text-sm font-normal text-slate-600">
-                {formatVideoCount(statistics.viewCount)} views{" "}
+              {statistics && <p className="text-sm font-normal text-slate-400">
+                {formatVideoCount(statistics?.viewCount)} views
                 <span className="font-bold">&nbsp; .&nbsp;</span>
-              </p>
-              <p className="text-sm font-normal text-slate-600">
-                {formatDateAgo(publishedAt)}
+              </p>}
+              <p className="text-sm font-normal text-slate-400">
+                {formatDateAgo(publishedAt ?? '')}
               </p>
             </div>
           </div>

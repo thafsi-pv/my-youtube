@@ -6,10 +6,13 @@ import { useDispatch } from "react-redux";
 import { toggleSidebar } from "./Utils/sidebarSlice";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { YOUTUBE_SEARCH_SUGGESTION_API } from "./Constants";
+import { YOUTUBE_SEARCH_SUGGESTION_API, YT_SEARCH_API } from "./Constants";
 import { CiSearch } from "react-icons/ci";
+import { addVideo } from "./Utils/videoListSlice";
+import ytlogo from '../Assets/Img/ytLogo.svg'
 
 const Head = () => {
+  const [showList, setShowList] = useState(false)
   const [searchQuery, setSerachQuery] = useState([]);
   const [suggestion, setSuggestion] = useState([]);
   console.log("🚀 ~ file: Head.js:15 ~ Head ~ suggestion:", suggestion.length);
@@ -34,9 +37,23 @@ const Head = () => {
     const json = await data.json();
     setSuggestion(json[1]);
   };
+  const searchVideo = async () => {
+    const data = await fetch(`${YT_SEARCH_API}&q=${searchQuery}`);
+    const json = await data.json();
+    console.log("🚀 ~ searchVideo ~ json:", json)
+    dispatch(addVideo(json.items));
+  };
+
+  const suggestionClick = (q) => {
+    console.log("🚀 ~ suggestionClick ~ q:", q)
+    setSerachQuery(q)
+    setSuggestion([])
+    searchVideo()
+    setShowList(false)
+  }
 
   return (
-    <div className="grid grid-flow-col h-16  mb-3 absolute top-0  w-screen bg-white left-0 right-0">
+    <div className="grid grid-flow-col h-16  mb-3 absolute top-0  w-screen  left-0 right-0 dark:bg-gray-900">
       <div className=" flex p-1 items-center">
         <div className="px-3 ">
           <RxHamburgerMenu
@@ -45,39 +62,42 @@ const Head = () => {
           />
         </div>
         <div className="flex relative">
-          <img
-            href="/"
-            className="w-24 h-5 cursor-pointer"
-            src={YouTubeLogo}
-            alt="Youtubelogo"
-          />
-          <p className="text-xs px-1 font-normal right-0 top-0 text-[9px]">
+          <Link to='/'>
+            <img
+              href="/"
+              className="w-24 h-5 cursor-pointer"
+              src={ytlogo}
+              alt="Youtubelogo"
+            /></Link>
+          <p className="text-xs px-1 font-normal right-0 top-0 text-[7px]">
             IN
           </p>
         </div>
       </div>
-      <div className="col-span-5 py-1 w-4/5 flex">
+      <div className="col-span-5 py-1 w-3/5 flex">
         <div className="col-span-5 py-3 w-full flex relative">
           <input
             type="text"
-            className="border border-slate-400 w-full rounded-l-full py-3 h-10 px-3 outline-none relative"
+            className="border border-[#282828] w-full rounded-l-full py-3 h-10 px-3 outline-none relative dark:bg-gray-900"
             placeholder="Search"
-            onChange={(e) => setSerachQuery(e.target.value)}
+            value={searchQuery}
+            onChange={(e) => { setSerachQuery(e.target.value); setShowList(true) }}
             onFocus={(e) => setSerachQuery(e.target.value)}
-            onBlur={(e) => setSuggestion([])}
+          // onBlur={(e) => setSuggestion([])}
           />
-          <button className="border border-slate-400 rounded-r-full p-1 h-10 px-4 bg-slate-100">
+          <button className="border border-[#282828] rounded-r-full p-1 h-10 px-4 dark:bg-[#282828]">
             <FiSearch />
           </button>
           {suggestion.length !== 0 && (
-            <div className="bg-white  w-[93%] rounded-md z-20  mt-10 absolute border">
+            <div className="dark:bg-gray-900 border-[#282828]  w-[93%] rounded-md z-20  mt-10 absolute border">
               <ul classNmae="divide-y divide-gray-100">
-                {suggestion &&
+                {showList && suggestion &&
                   suggestion?.map((s) => {
                     return (
                       <li
+                        onClick={() => suggestionClick(s)}
                         key={s}
-                        class="py-2 hover:bg-gray-100 px-3 flex items-center ">
+                        class="py-2 hover:bg-gray-700 px-3 flex items-center z-50 cursor-pointer">
                         <CiSearch className="mr-2" />
                         {s}
                       </li>
