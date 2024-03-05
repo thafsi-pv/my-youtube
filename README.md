@@ -11,3 +11,7 @@ This project is a YouTube clone app built with React, utilizing the YouTube Data
 - Interact with video content
 - State managed with Redux Toolkit
 - Styled with Tailwind CSS
+
+
+https://github.com/thafsi-pv/my-youtube/assets/22377348/c69125f7-073f-46cf-b9b1-778f1f1a7eb9
+
